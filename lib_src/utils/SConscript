@@ -27,13 +27,13 @@ env.Append(CCFLAGS='-g -pipe -W -Wall')
 # Link time flags
 #env.Append(LINKFLAGS = ['-lpthread -lcrypto -lrt'])
 
-#lib_target = "zstring"
-#lib_source = ["string_util.cpp"]
+lib_target = "zutils"
+lib_source = ["apue.cpp"]
 
-#t = env.StaticLibrary(target = lib_target, source = lib_source)
-#Default(t)
+t = env.StaticLibrary(target = lib_target, source = lib_source)
+Default(t)
 
 # copy to lib directory
-Default(env.Install(dir = inc_dir, source = 'macro.h'))
-#Default(env.Install(dir = lib_dir, source = t))
+Default(env.Install(dir = inc_dir, source = ['apue.h', 'macro.h']))
+Default(env.Install(dir = lib_dir, source = t))
 
