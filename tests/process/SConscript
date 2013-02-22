@@ -30,6 +30,8 @@ env.Append(LIBS = ['zutils', 'zproc'])
 env.Append(LINKFLAGS = ['-lpthread'])
 
 Default(env.Program(target = 'dev_zero', source = 'dev_zero.cpp'))
+Default(env.Program(target = 'pipe_test', source = 'pipe_test.cpp'))
+Default(env.Program(target = 'poen_test', source = 'popen_test.cpp'))
 Default(env.Program(target = 'rwlock_test', source = 'rwlock_test.c'))
 
 
