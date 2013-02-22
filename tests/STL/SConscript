@@ -1,6 +1,6 @@
 import os
 
-base_dir = '.'
+base_dir = "../../../output"
 lib_dir = base_dir + '/lib'
 inc_dir = base_dir + '/include'
 
@@ -27,11 +27,16 @@ env.Append(CCFLAGS='-g -pipe -W -Wall')
 #env.Append(CPPDEFINES={'RELEASE_BUILD' : '1'})
 
 # Link time flags
-#env.Append(LINKFLAGS = ['-lpthread -lcrypto -lrt'])
+env.Append(LINKFLAGS = ['-lpthread'])
 
-for file in os.listdir(os.getcwd()) :
-    if os.path.isfile(os.path.join(os.getcwd(), file)) and file.endswith(".cpp") :
-        bin_file = file[:file.rfind(".cpp")]
-        t = env.Program(target = bin_file, source = file)
-        Default(t)
+Default(env.Program(target = 'functor_adaptor_test', source = 'functor_adaptor_test.cpp'))
+Default(env.Program(target = 'hash_multimap_test', source = 'hash_multimap_test.cpp'))
+Default(env.Program(target = 'set_test', source = 'set_test.cpp'))
+
+
+#for file in os.listdir(os.getcwd()) :
+#    if os.path.isfile(os.path.join(os.getcwd(), file)) and file.find(".c") != -1:
+#        bin_file = file[:file.rfind(".c")]
+#        t = env.Program(target = bin_file, source = file)
+#        Default(t)
 
