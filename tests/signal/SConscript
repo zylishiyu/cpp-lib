@@ -19,7 +19,7 @@ env.Append(CPPPATH = [inc_dir])
 env.Append(LIBPATH = [lib_dir])
 
 # Add libraries to link against
-env.Append(LIBS = ['zthread'])
+env.Append(LIBS = ['zthread', 'zutils'])
 
 # Add define
 #env.Append(CPPDEFINES=['BIG_ENDIAN'])
@@ -31,6 +31,7 @@ env.Append(LINKFLAGS = ['-lpthread'])
 
 Default(env.Program(target = 'alarm_thread_test', source = 'alarm_thread_test.cpp'))
 Default(env.Program(target = 'sigaction_test', source = 'sigaction_test.cpp'))
+Default(env.Program(target = 'signal_ipc_test', source = 'signal_ipc_test.cpp'))
 Default(env.Program(target = 'thr_alarm_test', source = 'thr_alarm_test.cpp'))
 Default(env.Program(target = 'ualarm_test', source = 'ualarm_test.cpp'))
 
