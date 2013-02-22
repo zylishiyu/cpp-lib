@@ -35,7 +35,7 @@ void map_test() {
     map_element element(key, value);
     int str_length = 7;
     std::string s("aaa\0bbb", str_length);
-    for (int i = 0; i < s.size(); ++i) {
+    for (size_t i = 0; i < s.size(); ++i) {
         printf("%c", s[i]);
     }
     printf("\n");

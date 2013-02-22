@@ -1,0 +1,11 @@
+import os
+
+cur_dir = '.'
+omit_dirs = ['.', 'output', 'build']
+
+# build all sub directory's targets
+for sub_dir in os.listdir(cur_dir) :
+    if os.path.isdir(os.path.join(cur_dir, sub_dir)) :
+        if not sub_dir in omit_dirs :
+            SConscript(sub_dir + '/SConscript')
+
