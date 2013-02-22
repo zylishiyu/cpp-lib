@@ -29,6 +29,7 @@ env.Append(LIBS = ['zutils', 'zproc'])
 # Link time flags
 env.Append(LINKFLAGS = ['-lpthread'])
 
+Default(env.Program(target = 'daemon_test', source = 'daemon_test.cpp'))
 Default(env.Program(target = 'dev_zero', source = 'dev_zero.cpp'))
 Default(env.Program(target = 'pipe_test', source = 'pipe_test.cpp'))
 Default(env.Program(target = 'poen_test', source = 'popen_test.cpp'))
