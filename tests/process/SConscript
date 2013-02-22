@@ -16,10 +16,10 @@ env.Append(CCFLAGS='-g -pipe -W -Wall')
 env.Append(CPPPATH = [inc_dir])
 
 # Add library search path
-#env.Append(LIBPATH = [lib_dir])
+env.Append(LIBPATH = [lib_dir])
 
 # Add libraries to link against
-#env.Append(LIBS = ['zstring'])
+env.Append(LIBS = ['zutils', 'zproc'])
 
 # Add define
 #env.Append(CPPDEFINES=['BIG_ENDIAN'])
@@ -29,6 +29,7 @@ env.Append(CPPPATH = [inc_dir])
 # Link time flags
 env.Append(LINKFLAGS = ['-lpthread'])
 
+Default(env.Program(target = 'dev_zero', source = 'dev_zero.cpp'))
 Default(env.Program(target = 'rwlock_test', source = 'rwlock_test.c'))
 
 
