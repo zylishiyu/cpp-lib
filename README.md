@@ -1,4 +1,4 @@
 # cpp-lib
 
-some c++ libraries.
+some c++ libraries and tests.
 
