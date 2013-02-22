@@ -1,0 +1,39 @@
+base_dir = "../../../output"
+lib_dir = base_dir + "/lib"
+inc_dir = base_dir + "/include"
+
+# Add C++ Preprocessor
+env = Environment(CPPFLAGS='-D_GNU_SOURCE -D__STDC_LIMIT_MACROS -DVERSION=\\\"1.0.0.0\\\" -DDEBUG')
+
+# Add C compile-time flags
+env.Append(CCFLAGS='-g -pipe -W -Wall')
+
+#env.Append(CXXFLAGS='-g -pipe -W -Wall')
+
+# Add header search path
+#env.Append(CPPPATH = ['../include/mysql'])
+
+# Add library search path
+#env.Append(LIBPATH = ['../lib/mysql'])
+
+# Add libraries to link against
+#env.Append(LIBS = ['mysqlclient', 'z'])
+
+# Add define
+#env.Append(CPPDEFINES=['BIG_ENDIAN'])
+# add define with value (e.g. -DRELEASE_BUILD=1)
+#env.Append(CPPDEFINES={'RELEASE_BUILD' : '1'})
+
+# Link time flags
+#env.Append(LINKFLAGS = ['-lpthread -lcrypto -lrt'])
+
+lib_target = "zstring"
+lib_source = ["string_util.cpp"]
+
+t = env.StaticLibrary(target = lib_target, source = lib_source)
+Default(t)
+
+# copy to lib directory
+Default(env.Install(dir = inc_dir, source = 'string_util.h'))
+Default(env.Install(dir = lib_dir, source = t))
+
