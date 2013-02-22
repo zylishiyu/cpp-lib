@@ -1,3 +1,5 @@
+import os
+
 base_dir = '.'
 lib_dir = base_dir + '/lib'
 inc_dir = base_dir + '/include'
@@ -27,12 +29,9 @@ env.Append(CCFLAGS='-g -pipe -W -Wall')
 # Link time flags
 #env.Append(LINKFLAGS = ['-lpthread -lcrypto -lrt'])
 
-t1 = env.Program(target = 'functor_adaptor_test', source = 'functor_adaptor_test.cpp')
-Default(t1)
-
-t2 = env.Program(target = 'hash_multimap_test', source = 'hash_multimap_test.cpp')
-Default(t2)
-
-t3 = env.Program(target = 'set_test', source = 'set_test.cpp')
-Default(t3)
+for file in os.listdir(os.getcwd()) :
+    if os.path.isfile(os.path.join(os.getcwd(), file)) and file.endswith(".cpp") :
+        bin_file = file[:file.rfind(".cpp")]
+        t = env.Program(target = bin_file, source = file)
+        Default(t)
 
