@@ -1,0 +1,9 @@
+.sconsign.dblite
+*.swp
+
+clean_tmp_files.sh
+tags
+
+build
+output
+
