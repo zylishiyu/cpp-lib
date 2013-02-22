@@ -28,12 +28,12 @@ env.Append(LIBS = ['zutils'])
 #env.Append(LINKFLAGS = ['-lpthread -lcrypto -lrt'])
 
 lib_target = "zproc"
-lib_source = ["proc_sync.cpp"]
+lib_source = ["proc_sync.cpp", "daemonize.cpp"]
 
 t = env.StaticLibrary(target = lib_target, source = lib_source)
 Default(t)
 
 # copy to lib directory
-Default(env.Install(dir = inc_dir, source = ['proc_sync.h']))
+Default(env.Install(dir = inc_dir, source = ['proc_sync.h', 'daemonize.h']))
 Default(env.Install(dir = lib_dir, source = t))
 
